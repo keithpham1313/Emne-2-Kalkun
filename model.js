@@ -1,44 +1,47 @@
 const model = {
     app: document.getElementById('app'),
     viewState: {
-        cakeordering:{
-            smak: '',
-            størrelse: '',
-            pynt: '',
-            tema: '',
-            kommentar: '',
-        },
-
-        user:{
+        user: {
             username: '',
             password: '',
         },
 
-        cart:{
-            products:[],
+        cart: {
+            products: [],
             coupon: false,
             date: null,
             time: null,
-
         },
-        cartitem: {
-            itemname: null,
-            itemimg: null,
+
+        cartItem: {
+            itemName: null,
+            itemImg: null,
             qty: 0,
-            itemprice: null,
-            custom: [],
-        }
+            itemPrice: null,
+            custom: [], //tilpasninger
+        },
     },
 
     data: {
+        cartQty: 0,
+
+        frontPageImg: [{
+            category: 'Ukens tilbud',
+            img: []
+            },
+        ],
+
         categories: ['kake','snitter','kaffe','baguette'],
-        cakeedits: {
+
+        cakeEdits: {
             taste:[],
             size:[],
             theme: [],
             decor: [],
+            comment: '',
         },
-        cafeproducts:[{
+
+        cafeProducts:[{
             img: '',
             title: '',
             category: 'baguette',
@@ -47,24 +50,33 @@ const model = {
             ingredients: [],
             qty: 0,
             lastUpdated: null,
-        },],
-    orders: [
-        {
-            orderstatus:null,
-            ordernumber: null,
-            customername: null,
+            },
+        ],
+
+        orders: [{
+            orderStatus:null,
+            orderNumber: null,
+            customerName: null,
             order: {},
             payment: null,
-            orderid:null,
-        }
-    ],
-    users:[
-        {
-            id: 0,
-            type: 'admin',
-            username: 'becka',
-            password: 'blabla',
-        }
-    ]
+            orderId:null,
+            },
+        ],
+
+        editStorageItem: {
+            title: '',
+            qty: 0,
+            lastUpdated: null,
+        },
+
+        users:[
+            {
+                id: 0,
+                type: 'admin',
+                username: 'becka',
+                password: 'blabla',
+                img: 'default',
+            }
+        ],
     },
-}
+};
